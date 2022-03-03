@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Panel</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Staff Panel | Current Time: {% now "H:i"%}</h1>
+<p>
+    {{ data }}
+    <!--{{ my_text|lower|capfirst }}, {{ my_num }}, {{my_list }}-->
+
+</p>
+   <!-- {% if my_bool == True %}
+    <ul>
+    {% for item in my_list%}
+        {% if item == 5 %}
+       <li>{{forloop.counter}}: {{ item|add:64}}</li>
+        {%elif item > 5 %}
+        <li>{{forloop.counter}}: lol</li>
+        {% else %}
+        <li>{{forloop.counter}}: {{ item }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}-->
+{% endblock %}

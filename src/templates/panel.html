@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Users Panel</title>
+{% endblock %}
+
+{% block content %}
+<style>
+    .multicolor::first-line {
+        color: #85d6de;
+        text-transform: uppercase;
+      }
+
+</style>
+
+
+    <h1>UserPanel | Current Time:{% now "M d, Y H:i"%}</h1>
+
+
+    <ul style="list-style-type: none;">
+    {% for user in userlist%}
+        <style>
+            li::after{color:#cc0da9;content: " (Last Seen: {{ user.last_login }})"; }
+        </style>
+       <li>{{ user }}</li>
+
+
+    {% endfor %}
+    </ul>
+
+{% endblock %}

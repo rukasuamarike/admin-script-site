@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>hello</title>
+
+{% endblock %}
+
+{% block content %}
+    <h1>hello {% if visits >= 1 %} again({{ visits }} times){% else %} new visitor {% endif %}.</h1>
+<form id = "form" action = "http://127.0.0.1:8000/admin/shell/" method="POST" >{% csrf_token %}
+        {{ form.as_p }}
+    <input type="submit" value="Send">
+</form>
+<script>
+    document.getElementById("id_user").value = "{{ user }}";
+    console.log(document.getElementById("id_user").value);
+</script>
+{% endblock %}

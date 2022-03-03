@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{user}}'s account details</title>
+{% endblock %}
+
+{% block content %}
+<style>
+    <!-- ADD DELETE ACCOUNT | ADD EDIT ACCOUNT | MAKE STYLES NICE -->
+   ul {
+    background: #5f56d5;
+    padding: 15px 15px 15px 5px;
+    list-style-type: none;
+    }
+    div {
+       background: #cdcdcd;
+       padding-left: 5px;
+       padding-bottom:5px;
+       margin: 5px 5px 5px 30px;
+    }
+
+    ul li {
+    background: #ffffff;
+    list-style-type: none;
+    margin: 5px 20px 5px 30px;
+    }
+    .divv{background-color: #ddd;
+        overflow: hidden;}
+        .divv a {
+        float:left;
+        display:block;
+
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 2%;
+        text-decoration: none;
+        font-size: 17px;
+        }
+        .divv a.active {
+        background-color: #bbbbbb;
+        color: white;
+        }
+        .divv a:hover {
+        background-color: #ccc;
+        color: black;
+        }
+</style>
+    <div>
+        <h1>Account Information</h1>
+        <ul>
+            {% if user.is_superuser %}
+            <li> account is superuser </li>
+            {% endif %}
+            {% if user.is_staff %}
+            <li> is a staff member </li>
+            {% endif %}
+            {% if user.first_name != "" %}
+            <li>full name: {{user.first_name}} {{user.last_name}}</li>
+            {% endif %}
+            <li>email: {{user.email}}</li>
+            <li>permissions: {{ user.user_permissions }}</li>
+            <li>date joined: {{ user.date_joined }}</li>
+        </ul>
+    </div>
+    <div class = "divv">
+        <a class="active" href = '/accounts/'>edit information</a>
+        <a class="active" href = '/accounts/password_reset'>reset password</a>
+        <a class="active" href = '/accounts/delete'>delete account</a>
+    </div>
+{% endblock %}

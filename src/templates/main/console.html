@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>console</title>
+{% endblock %}
+
+{% block content %}
+
+<body style = "background:rgb(240,240,240);">
+    <h1>console</h1>
+
+
+    <!--what should it accept?-->
+    <br>
+    <div style = "display: inline-block;padding:10px;height:40%;width:99%;background-color: black;overflow:scroll;position:fixed;">
+        <input id = "in" type="text" onchange="scriptQuery">
+
+    </div>
+
+</body>
+
+<script>
+
+
+    function scriptQuery(k){
+        console.log(k);
+    }
+</script>
+
+{% endblock %}
